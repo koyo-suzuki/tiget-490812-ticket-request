@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第2部プレミアム チケットお願い</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172126;
+      --muted: #5d6b72;
+      --line: #d9e5e8;
+      --paper: #ffffff;
+      --wash: #f4faf9;
+      --aqua: #00a9b7;
+      --aqua-dark: #007783;
+      --mint: #d8f3ef;
+      --gold: #f4b63f;
+      --rose: #fb6670;
+      --shadow: 0 18px 50px rgba(19, 61, 70, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: #eef7f6;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+      line-height: 1.65;
+      letter-spacing: 0;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(0, 169, 183, 0.16), rgba(244, 250, 249, 0) 240px),
+        var(--wash);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      padding: 18px 16px 34px;
+    }
+
+    .hero {
+      overflow: hidden;
+      border: 1px solid rgba(0, 119, 131, 0.18);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-image {
+      position: relative;
+      min-height: 180px;
+      background: #d9eff0;
+    }
+
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-image::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background: linear-gradient(180deg, rgba(11, 43, 49, 0.02), rgba(11, 43, 49, 0.62));
+    }
+
+    .badge {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 6px 13px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #211800;
+      font-size: 14px;
+      font-weight: 800;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      white-space: nowrap;
+    }
+
+    .hero-body {
+      padding: 22px 18px 20px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--aqua-dark);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 29px;
+      line-height: 1.18;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .lead {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-wrap: anywhere;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 16px;
+      border: 1px solid var(--aqua);
+      border-radius: 8px;
+      background: var(--aqua);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.25;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      appearance: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .button.secondary {
+      background: #fff;
+      color: var(--aqua-dark);
+    }
+
+    section {
+      margin-top: 18px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 19px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 0;
+    }
+
+    .summary div {
+      display: grid;
+      grid-template-columns: minmax(92px, 34%) 1fr;
+      gap: 10px;
+      align-items: start;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #edf3f4;
+    }
+
+    .summary div:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .summary dt {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .summary dd {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      min-height: 28px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: #fff1d2;
+      color: #7a4d00;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    ol {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: step;
+    }
+
+    li {
+      position: relative;
+      min-height: 44px;
+      padding-left: 52px;
+    }
+
+    li::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--mint);
+      color: var(--aqua-dark);
+      content: counter(step);
+      counter-increment: step;
+      font-weight: 900;
+    }
+
+    .step-title {
+      display: block;
+      font-size: 15px;
+      font-weight: 900;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+
+    .step-note {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+      overflow-wrap: anywhere;
+    }
+
+    .important {
+      display: grid;
+      gap: 8px;
+      margin-top: 14px;
+      padding: 12px;
+      border-left: 4px solid var(--rose);
+      border-radius: 6px;
+      background: #fff6f6;
+      color: #6d2429;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .small {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    footer {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (min-width: 560px) {
+      .page {
+        padding-top: 28px;
+      }
+
+      .hero-body,
+      section {
+        padding: 24px;
+      }
+
+      .hero-image img {
+        height: 300px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .actions {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <article class="hero" aria-labelledby="page-title">
+      <div class="hero-image">
+        <img src="https://d13rtcers002cb.cloudfront.net/images/884580a0-6adc-4a89-89a1-9ed0a6f6a8d9" alt="MOESTA + TOKYO CONCAFE COLLECTION vol.5 at SHINJUKU イベント画像">
+        <span class="badge">第2部 プレミアム</span>
+      </div>
+      <div class="hero-body">
+        <p class="eyebrow">TIGETチケット購入のお願い</p>
+        <h1 id="page-title">第2部のチケットを<br>取ってほしいです</h1>
+        <p class="lead">GoogleアカウントでTIGET登録できます。購入には電話番号認証が必須なので、事前に電話番号認証まで完了しておいてください。</p>
+        <div class="actions" aria-label="主要リンク">
+          <a class="button" href="https://tiget.net/events/490812">イベントページを開く</a>
+          <a class="button secondary" href="https://tiget.net/users/provider_sign_up">Googleで新規登録</a>
+        </div>
+      </div>
+    </article>
+
+    <section aria-labelledby="summary-title">
+      <h2 id="summary-title">対象チケット</h2>
+      <dl class="summary">
+        <div>
+          <dt>イベント</dt>
+          <dd>MOESTA + TOKYO CONCAFE COLLECTION vol.5 at SHINJUKU</dd>
+        </div>
+        <div>
+          <dt>日程</dt>
+          <dd>2026年07月04日(土)</dd>
+        </div>
+        <div>
+          <dt>会場</dt>
+          <dd>バトゥール東京(東京都)</dd>
+        </div>
+        <div>
+          <dt>券種</dt>
+          <dd>2部 プレミアム</dd>
+        </div>
+        <div>
+          <dt>時間</dt>
+          <dd>18:00 開場 / 18:00 開演</dd>
+        </div>
+        <div>
+          <dt>料金</dt>
+          <dd>20,000円 <span class="step-note">別途TIGET手数料の可能性あり</span></dd>
+        </div>
+        <div>
+          <dt>受付状況</dt>
+          <dd><span class="status">受付前</span></dd>
+        </div>
+        <div>
+          <dt>受付開始</dt>
+          <dd>2026.05.29 21:00</dd>
+        </div>
+      </dl>
+      <p class="small">カード決済: 2026.05.29 21:00 ~ 2026.07.03 23:59 / コンビニ決済: 2026.05.29 21:00 ~ 2026.06.30 23:59</p>
+    </section>
+
+    <section aria-labelledby="signup-title">
+      <h2 id="signup-title">TIGETアカウント作成</h2>
+      <ol>
+        <li>
+          <span class="step-title">TIGET新規登録ページを開く</span>
+          <span class="step-note">上の「Googleで新規登録」ボタンから開けます。</span>
+        </li>
+        <li>
+          <span class="step-title">「Googleで登録する」を選ぶ</span>
+          <span class="step-note">普段使っているGoogleアカウントで登録できます。</span>
+        </li>
+        <li>
+          <span class="step-title">電話番号認証を必ず済ませる</span>
+          <span class="step-note">購入時に必要なので、販売開始前に完了しておいてください。ここが一番大事です。</span>
+        </li>
+        <li>
+          <span class="step-title">登録後、TIGETにログインした状態にする</span>
+          <span class="step-note">ログイン画面でも「Googleでログイン」を使えます。</span>
+        </li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="buy-title">
+      <h2 id="buy-title">購入当日のお願い</h2>
+      <ol>
+        <li>
+          <span class="step-title">5/29(金) 21:00前にログインして待機</span>
+          <span class="step-note">電話番号認証まで終わった状態で待機してください。</span>
+        </li>
+        <li>
+          <span class="step-title">イベントページで「2部 プレミアム」を選ぶ</span>
+          <span class="step-note">1部や別券種と間違えないよう確認してください。</span>
+        </li>
+        <li>
+          <span class="step-title">購入手続きを進める</span>
+          <span class="step-note">支払い方法により受付期限が異なります。</span>
+        </li>
+      </ol>
+      <div class="important">
+        <span>購入には電話番号認証が必須です。事前に完了しておいてください。</span>
+        <span>電話番号認証まで事前に完了しておいてください。</span>
+      </div>
+    </section>
+
+    <footer>
+      最終確認日: 2026-05-28 / 受付開始前の案内ページ
+    </footer>
+  </main>
+</body>
+</html>
