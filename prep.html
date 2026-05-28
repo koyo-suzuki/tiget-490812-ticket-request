@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>購入前チェックリスト</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #162126;
+      --muted: #5c6d73;
+      --line: #d8e6e8;
+      --paper: #fff;
+      --wash: #f4faf9;
+      --aqua: #00a9b7;
+      --aqua-dark: #007783;
+      --mint: #d8f3ef;
+      --gold: #f4b63f;
+      --rose: #fb6670;
+      --shadow: 0 18px 50px rgba(19, 61, 70, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: #eef7f6;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+      line-height: 1.65;
+      letter-spacing: 0;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(0, 169, 183, 0.16), rgba(244, 250, 249, 0) 240px),
+        var(--wash);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      padding: 18px 16px 34px;
+    }
+
+    .hero,
+    section {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.94);
+    }
+
+    .hero {
+      padding: 22px 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--aqua-dark);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.18;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .lead {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 16px;
+      border: 1px solid var(--aqua);
+      border-radius: 8px;
+      background: var(--aqua);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 900;
+      line-height: 1.25;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .button.secondary {
+      background: #fff;
+      color: var(--aqua-dark);
+    }
+
+    section {
+      margin-top: 16px;
+      padding: 18px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 19px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 18px 0 8px;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 0;
+    }
+
+    .summary div {
+      display: grid;
+      grid-template-columns: minmax(96px, 35%) 1fr;
+      gap: 10px;
+      align-items: start;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #edf3f4;
+    }
+
+    .summary div:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .summary dt {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .summary dd {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 800;
+      overflow-wrap: anywhere;
+    }
+
+    ol,
+    ul {
+      margin: 0;
+      padding-left: 1.25em;
+    }
+
+    li {
+      margin-top: 8px;
+      padding-left: 2px;
+    }
+
+    .important {
+      display: grid;
+      gap: 8px;
+      margin-top: 14px;
+      padding: 12px;
+      border-left: 4px solid var(--rose);
+      border-radius: 6px;
+      background: #fff6f6;
+      color: #6d2429;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .memo {
+      margin: 10px 0 0;
+      padding: 12px;
+      border: 1px solid #dbe8ea;
+      border-radius: 8px;
+      background: #f8fcfb;
+      color: #243136;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .small {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .source-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (min-width: 560px) {
+      .page {
+        padding-top: 28px;
+      }
+
+      .hero,
+      section {
+        padding: 24px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .actions {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <article class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">TIGET購入前チェックリスト</p>
+      <h1 id="page-title">販売開始前に<br>ここまで準備</h1>
+      <p class="lead">5/29(金) 21:00の前に、ログイン・電話番号認証・申込者情報・コンビニ選択方針まで済ませておくためのページです。</p>
+      <div class="actions" aria-label="主要リンク">
+        <a class="button" href="https://tiget.net/events/490812">イベントページを開く</a>
+        <a class="button secondary" href="./">お願いページに戻る</a>
+      </div>
+    </article>
+
+    <section aria-labelledby="target-title">
+      <h2 id="target-title">今回選ぶもの</h2>
+      <dl class="summary">
+        <div>
+          <dt>券種</dt>
+          <dd>2部 プレミアム</dd>
+        </div>
+        <div>
+          <dt>日時</dt>
+          <dd>2026年07月04日(土) 18:00開場 / 18:00開演</dd>
+        </div>
+        <div>
+          <dt>金額</dt>
+          <dd>20,000円 + 手数料</dd>
+        </div>
+        <div>
+          <dt>決済</dt>
+          <dd>コンビニ決済を選ぶ</dd>
+        </div>
+        <div>
+          <dt>受付開始</dt>
+          <dd>2026.05.29 21:00</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="ready-title">
+      <h2 id="ready-title">先に済ませること</h2>
+      <ol>
+        <li>TIGETにGoogleアカウントで登録する。</li>
+        <li>確認メールが来たら、メール内URLを開いて本登録を完了する。</li>
+        <li>電話番号認証を完了する。SMSを受け取れるスマホを手元に置く。</li>
+        <li>マイページの設定で、申込者情報を登録しておく。</li>
+        <li>販売開始前にTIGETへログインして、イベントページを開いて待機する。</li>
+      </ol>
+      <div class="important">
+        <span>電話番号認証はチケット購入に必要です。</span>
+        <span>申込者情報はイベントによって入力を求められることがあります。事前登録しておくと入力の手間を減らせます。</span>
+      </div>
+    </section>
+
+    <section aria-labelledby="copy-title">
+      <h2 id="copy-title">コピペ用に用意しておくもの</h2>
+      <p class="small">受付前のため、このイベント固有の購入フォーム項目は未表示です。TIGET公式ヘルプ上、イベントによって求められ得る情報として以下を準備してください。</p>
+      <pre class="memo">氏名:
+フリガナ:
+郵便番号:
+住所:
+電話番号:
+メールアドレス:
+
+選ぶ券種: 2部 プレミアム
+支払い方法: コンビニ決済
+選ぶコンビニ: ファミリーマート</pre>
+    </section>
+
+    <section aria-labelledby="store-title">
+      <h2 id="store-title">コンビニはどれを選ぶ？</h2>
+      <h3>基本はファミリーマート</h3>
+      <p class="small">迷ったら「ファミリーマート」を選んでください。TIGET公式ヘルプ上、支払い可能なコンビニに含まれています。</p>
+      <h3>近くにファミマがない場合</h3>
+      <p class="small">ローソン、ミニストップ、セイコーマート、デイリーヤマザキも選択肢にあります。必ず自分が支払いに行ける店舗を選んでください。</p>
+      <div class="important">
+        <span>支払い先のコンビニは選択後に変更できません。</span>
+        <span>選んだコンビニで支払えるよう、店舗の場所まで先に決めておくのが安全です。</span>
+      </div>
+    </section>
+
+    <section aria-labelledby="after-title">
+      <h2 id="after-title">購入後に保存するもの</h2>
+      <ul>
+        <li>購入完了画面のスクショ</li>
+        <li>TIGETから届く「コンビニ支払いについてのご案内」メール</li>
+        <li>確認番号 / お客様番号 / 企業コード / オンライン決済番号など、コンビニ支払いに必要な番号</li>
+        <li>コンビニ決済お支払い期限</li>
+      </ul>
+      <p class="small">番号の名称は選んだコンビニによって変わります。TIGETのマイページまたはメールで確認できます。</p>
+    </section>
+
+    <section aria-labelledby="sources-title">
+      <h2 id="sources-title">確認元</h2>
+      <ul class="source-list">
+        <li><a href="https://tiget.net/events/490812">TIGETイベントページ</a></li>
+        <li><a href="https://tiget.tayori.com/faq/b305bb5494caed5b4b7dad7864574e6f65c6fd55/detail/b8ea846a5be00e5a7966335a8aa83ff13d50b9f2/">TIGETヘルプ: 会員登録の方法</a></li>
+        <li><a href="https://tiget.tayori.com/faq/b305bb5494caed5b4b7dad7864574e6f65c6fd55/detail/b9a9f441db8d43dabab1f805e3afb0f8eac29c92/">TIGETヘルプ: 電話番号認証とは</a></li>
+        <li><a href="https://tiget.tayori.com/faq/b305bb5494caed5b4b7dad7864574e6f65c6fd55/detail/e547c34e8917e4d67876eb7a3f2032745e8cd33b/">TIGETヘルプ: コンビニ支払いの手順</a></li>
+        <li><a href="https://tiget.tayori.com/faq/b305bb5494caed5b4b7dad7864574e6f65c6fd55/detail/4de69f9c7a3c2ca04406ca77342dfa739b00bcea/">TIGETヘルプ: 支払いができるコンビニ</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      最終確認日: 2026-05-28 / 受付開始前の準備ページ
+    </footer>
+  </main>
+</body>
+</html>
