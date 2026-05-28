@@ -286,6 +286,61 @@
       line-height: 1.6;
     }
 
+    .plain-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .plain-list li {
+      min-height: 0;
+      margin: 0;
+      padding-left: 0;
+    }
+
+    .plain-list li::before {
+      display: none;
+      content: none;
+    }
+
+    .table-wrap {
+      margin-top: 12px;
+      overflow-x: auto;
+      border: 1px solid #dbe8ea;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      min-width: 520px;
+      border-collapse: collapse;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    th,
+    td {
+      padding: 9px 10px;
+      border-bottom: 1px solid #edf3f4;
+      text-align: left;
+      vertical-align: top;
+      overflow-wrap: anywhere;
+    }
+
+    th {
+      background: var(--mint);
+      color: var(--aqua-dark);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
     footer {
       margin-top: 16px;
       color: var(--muted);
@@ -431,6 +486,65 @@
         <span>コンビニはファミリーマートを選んでください。</span>
         <span>支払いはこちらで行うので、購入後に支払い番号と期限を共有してください。</span>
       </div>
+    </section>
+
+    <section aria-labelledby="line-title">
+      <h2 id="line-title">当日の連携</h2>
+      <ul class="plain-list">
+        <li>
+          <span class="step-title">5/29(金) 20:30〜21:30</span>
+          <span class="step-note">「モエスタフェス争奪戦会場」のLINEグループ通話に参加してください。</span>
+        </li>
+        <li>
+          <span class="step-title">チケット取得の有無を報告</span>
+          <span class="step-note">取れた / 取れなかったを必ず共有してください。取れた場合は、購入完了画面と支払い番号・期限も送ってください。</span>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="survey-title">
+      <h2 id="survey-title">想定アンケート回答</h2>
+      <p class="small">購入時に「お目当て店舗」系の事前アンケートが出たら、下の割当店舗を入力してください。回答が偏る可能性があるため、バックヤード側で店舗をばらしています。Revelio / GALCAFE 10SION は選ばないでください。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>名前</th>
+              <th>お目当て店舗</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>あやと</td><td>あるちゅーる</td></tr>
+            <tr><td>鈴木</td><td>Alice×Alice</td></tr>
+            <tr><td>あめ</td><td>ギルドラビリンス</td></tr>
+            <tr><td>そーた</td><td>Mary Mare</td></tr>
+            <tr><td>きょん</td><td>MY ANGEL ROPPONGI</td></tr>
+            <tr><td>守屋</td><td>あんどねこ</td></tr>
+            <tr><td>猪股</td><td>ご自愛メシア</td></tr>
+            <tr><td>戸口</td><td>しゃっとのわーる</td></tr>
+            <tr><td>メアリ</td><td>B4BYCR4SH</td></tr>
+            <tr><td>かれん</td><td>シュガーハウンド</td></tr>
+            <tr><td>Banko</td><td>dystop:a</td></tr>
+            <tr><td>岬</td><td>ちゅらねお</td></tr>
+            <tr><td>とーり</td><td>#LOVE Cafe&amp;Bar</td></tr>
+            <tr><td>うる</td><td>あるちゅーる</td></tr>
+            <tr><td>ちゅーる</td><td>Alice×Alice</td></tr>
+            <tr><td>冨田</td><td>ギルドラビリンス</td></tr>
+            <tr><td>さな</td><td>Mary Mare</td></tr>
+            <tr><td>根岸</td><td>MY ANGEL ROPPONGI</td></tr>
+            <tr><td>のえる</td><td>あんどねこ</td></tr>
+            <tr><td>中荒井</td><td>ご自愛メシア</td></tr>
+            <tr><td>みねめろ</td><td>しゃっとのわーる</td></tr>
+            <tr><td>みづき</td><td>B4BYCR4SH</td></tr>
+            <tr><td>わかな</td><td>シュガーハウンド</td></tr>
+            <tr><td>のあ</td><td>dystop:a</td></tr>
+            <tr><td>りつ</td><td>ちゅらねお</td></tr>
+            <tr><td>音</td><td>#LOVE Cafe&amp;Bar</td></tr>
+            <tr><td>るこ</td><td>MY ANGEL ROPPONGI</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small">割当元: スプレッドシート「依頼先リスト」/「店舗割当」</p>
     </section>
 
     <footer>
